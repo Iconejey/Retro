@@ -55,11 +55,6 @@ class Slideshow {
     }
 
     showSlide(n) {
-        // Hide all slides
-        this.slides.forEach(slide => {
-            slide.style.display = 'none';
-        });
-
         // Ensure index is within bounds
         if (n >= this.slides.length) {
             this.currentSlide = this.slides.length - 1;
@@ -69,10 +64,13 @@ class Slideshow {
             this.currentSlide = n;
         }
 
+        // Hide all slides
+        this.slides.forEach(slide => {
+            slide.style.display = 'none';
+        });
+
         // Show the current slide
-        if (this.slides[this.currentSlide]) {
-            this.slides[this.currentSlide].style.display = 'flex';
-        }
+        this.slides[this.currentSlide].style.display = 'flex';
     }
 
     nextSlide() {
