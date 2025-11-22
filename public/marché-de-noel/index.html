@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marché de Noël - Retro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            width: 100vw;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .slide h1 {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            color: #ff6b6b;
+        }
+
+        .slide h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #4ecdc4;
+        }
+
+        .slide p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            line-height: 1.8;
+        }
+
+        .slide ul {
+            list-style: none;
+            font-size: 1.5rem;
+            max-width: 800px;
+            text-align: left;
+        }
+
+        .slide li {
+            margin: 1rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .slide li:before {
+            content: "🎄";
+            position: absolute;
+            left: 0;
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <!-- Slide 1: Title -->
+    <div class="slide">
+        <h1>🎄 Marché de Noël 🎄</h1>
+        <p>Une rétrospective festive</p>
+    </div>
+
+    <!-- Slide 2: Introduction -->
+    <div class="slide">
+        <h2>Bienvenue</h2>
+        <p>
+            Découvrez les moments forts de notre marché de Noël,
+            une célébration de la tradition et de la convivialité.
+        </p>
+    </div>
+
+    <!-- Slide 3: Highlights -->
+    <div class="slide">
+        <h2>Les Points Forts</h2>
+        <ul>
+            <li>Stand de décorations artisanales</li>
+            <li>Vin chaud et spécialités locales</li>
+            <li>Animations pour enfants</li>
+            <li>Concerts de musique traditionnelle</li>
+        </ul>
+    </div>
+
+    <!-- Slide 4: Conclusion -->
+    <div class="slide">
+        <h2>Merci !</h2>
+        <p>À l'année prochaine pour de nouvelles aventures festives ! 🎅</p>
+    </div>
+
+    <div class="controls">
+        Utilisez les flèches ← → ou espace pour naviguer
+    </div>
+
+    <!-- Socket.IO Client -->
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- Slideshow Script -->
+    <script src="/slideshow.js"></script>
+</body>
+</html>
