@@ -1,120 +1,41 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marché de Noël - Retro</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Rétrospective - Marché de Noël</title>
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #1a1a1a;
-            color: #fff;
-            overflow: hidden;
-        }
+		<!-- Styles -->
+		<link rel="stylesheet" href="styles.css" />
 
-        .slide {
-            display: none;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100vh;
-            width: 100vw;
-            padding: 2rem;
-            text-align: center;
-        }
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
 
-        .slide h1 {
-            font-size: 4rem;
-            margin-bottom: 2rem;
-            color: #ff6b6b;
-        }
+		<!-- Scripts -->
+		<script src="/socket.io/socket.io.js" defer></script>
+		<script src="/framework.js" defer></script>
+		<script src="/slideshow.js" defer></script>
+		<script src="./main.js" defer></script>
+	</head>
+	<body>
+		<div class="slide"></div>
 
-        .slide h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: #4ecdc4;
-        }
+		<div class="slide">
+			<img src="./assets/jamel.gif" />
+		</div>
 
-        .slide p {
-            font-size: 1.5rem;
-            max-width: 800px;
-            line-height: 1.8;
-        }
+		<div class="slide">
+			<h1>Rétrospective</h1>
+			<h3>Sprint 13</h3>
+			<p class="op">27 Octobre - 24 Novembre 2025</p>
+		</div>
 
-        .slide ul {
-            list-style: none;
-            font-size: 1.5rem;
-            max-width: 800px;
-            text-align: left;
-        }
-
-        .slide li {
-            margin: 1rem 0;
-            padding-left: 2rem;
-            position: relative;
-        }
-
-        .slide li:before {
-            content: "🎄";
-            position: absolute;
-            left: 0;
-        }
-
-        .controls {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            font-size: 0.9rem;
-            color: #888;
-        }
-    </style>
-</head>
-<body>
-    <!-- Slide 1: Title -->
-    <div class="slide">
-        <h1>🎄 Marché de Noël 🎄</h1>
-        <p>Une rétrospective festive</p>
-    </div>
-
-    <!-- Slide 2: Introduction -->
-    <div class="slide">
-        <h2>Bienvenue</h2>
-        <p>
-            Découvrez les moments forts de notre marché de Noël,
-            une célébration de la tradition et de la convivialité.
-        </p>
-    </div>
-
-    <!-- Slide 3: Highlights -->
-    <div class="slide">
-        <h2>Les Points Forts</h2>
-        <ul>
-            <li>Stand de décorations artisanales</li>
-            <li>Vin chaud et spécialités locales</li>
-            <li>Animations pour enfants</li>
-            <li>Concerts de musique traditionnelle</li>
-        </ul>
-    </div>
-
-    <!-- Slide 4: Conclusion -->
-    <div class="slide">
-        <h2>Merci !</h2>
-        <p>À l'année prochaine pour de nouvelles aventures festives ! 🎅</p>
-    </div>
-
-    <div class="controls">
-        Utilisez les flèches ← → ou espace pour naviguer
-    </div>
-
-    <!-- Socket.IO Client -->
-    <script src="/socket.io/socket.io.js"></script>
-    <!-- Slideshow Script -->
-    <script src="/slideshow.js"></script>
-</body>
+		<div class="slide">
+			<h2>Ice braker</h2>
+			<p>Vous entrez dans le marché. Vers quel chalet allez vous en premier ?</p>
+			<img class="qr" src="" />
+		</div>
+	</body>
 </html>

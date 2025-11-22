@@ -1,0 +1,97 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	background-color: #143726;
+	color: #fff;
+	overflow: hidden;
+}
+
+.slide {
+	display: none;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 100vh;
+	width: 100vw;
+	padding: 2rem;
+	text-align: center;
+}
+
+.slide h1 {
+	font-family: 'Mountains of Christmas', cursive;
+	font-size: 8rem;
+	margin-bottom: 2rem;
+	color: #ff3535;
+}
+
+.slide h2 {
+	font-size: 4rem;
+	margin-bottom: 1.5rem;
+	color: #febb0b;
+}
+
+.slide h3 {
+	font-size: 2.5rem;
+	margin-bottom: 1.5rem;
+	color: #febb0b;
+}
+
+.slide p {
+	font-size: 2rem;
+	max-width: 800px;
+	line-height: 1.8;
+}
+
+.slide ul {
+	list-style: none;
+	font-size: 1.5rem;
+	max-width: 800px;
+	text-align: left;
+}
+
+.slide li {
+	margin: 1rem 0;
+	padding-left: 2rem;
+	position: relative;
+}
+
+.slide li:before {
+	content: '🎄';
+	position: absolute;
+	left: 0;
+}
+
+h1,
+h2,
+h3,
+p {
+	text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+}
+
+.op {
+	font-size: 1rem;
+	opacity: 0.7;
+}
+
+.emoji {
+	position: fixed;
+	z-index: -1;
+	opacity: 0.1;
+	font-size: 3rem;
+	transition: opacity 0.5s ease-in-out;
+}
+
+.emoji.hidden {
+	opacity: 0;
+}
+
+img {
+	height: 40vh;
+	border-radius: 0.5rem;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+}
