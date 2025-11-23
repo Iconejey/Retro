@@ -118,6 +118,20 @@ function create(strings, ...values) {
 }
 
 /**
+ * Template tag function to render HTML as multiple elements
+ * @param {TemplateStringsArray} strings - Template strings array
+ * @param  {...any} values - Values to interpolate into the template
+ * @returns {Array<HTMLElement>} An array of newly created HTML elements
+ */
+function createAll(strings, ...values) {
+	const div = document.createElement('div');
+	div.render(strings, ...values);
+	const elems = Array.from(div.children);
+	while (div.firstChild) div.firstChild.remove();
+	return elems;
+}
+
+/**
  * Extends HTMLElement prototype with appendr property for appending rendered HTML templates
  * @memberof HTMLElement.prototype
  * @type {function}
@@ -133,8 +147,9 @@ function create(strings, ...values) {
 Object.defineProperty(HTMLElement.prototype, 'appendr', {
 	get() {
 		return (strings, ...values) => {
-			const content = create(strings, ...values);
-			this.appendChild(content);
+			// Split by new li
+			const elems = createAll(strings, ...values);
+			for (const elem of elems) this.appendChild(elem);
 		};
 	}
 });
@@ -155,9 +170,11 @@ Object.defineProperty(HTMLElement.prototype, 'appendr', {
 Object.defineProperty(HTMLElement.prototype, 'prependr', {
 	get() {
 		return (strings, ...values) => {
-			const content = create(strings, ...values);
-			if (this.firstChild) this.insertBefore(content, this.firstChild);
-			else this.appendChild(content);
+			const elems = createAll(strings, ...values);
+			for (const content of elems) {
+				if (this.firstChild) this.insertBefore(content, this.firstChild);
+				else this.appendChild(content);
+			}
 		};
 	}
 });

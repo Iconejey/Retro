@@ -5,10 +5,9 @@
 }
 
 body {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Edu NSW ACT Cursive', sans-serif;
 	background-color: #143726;
 	color: #fff;
-	overflow: hidden;
 }
 
 .slide {
@@ -19,48 +18,49 @@ body {
 	height: 100vh;
 	width: 100vw;
 	padding: 2rem;
-	text-align: center;
 }
 
-.slide h1 {
+h1 {
 	font-family: 'Mountains of Christmas', cursive;
 	font-size: 8rem;
 	margin-bottom: 2rem;
 	color: #ff3535;
 }
 
-.slide h2 {
+h2 {
+	font-family: 'Mountains of Christmas', cursive;
 	font-size: 4rem;
 	margin-bottom: 1.5rem;
 	color: #febb0b;
 }
 
-.slide h3 {
+h3 {
 	font-size: 2.5rem;
 	margin-bottom: 1.5rem;
 	color: #febb0b;
 }
 
-.slide p {
+p {
 	font-size: 2rem;
 	max-width: 800px;
 	line-height: 1.8;
+	text-align: center;
 }
 
-.slide ul {
+ul {
 	list-style: none;
 	font-size: 1.5rem;
 	max-width: 800px;
 	text-align: left;
 }
 
-.slide li {
+li {
 	margin: 1rem 0;
 	padding-left: 2rem;
 	position: relative;
 }
 
-.slide li:before {
+li:before {
 	content: '🎄';
 	position: absolute;
 	left: 0;
@@ -94,4 +94,57 @@ img {
 	height: 40vh;
 	border-radius: 0.5rem;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+}
+
+img.qr {
+	height: 40vh;
+	margin: 1rem;
+}
+
+#votes {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 2rem;
+	padding-bottom: 4rem;
+}
+
+.options {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	gap: 2rem;
+	margin-top: 2rem;
+}
+
+.options > * {
+	font-size: 1.5rem;
+	background-color: #febb0b11;
+	padding: 0.7rem 1rem;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	border: 2px solid #febb0b33;
+	color: #febb0b;
+	font-family: 'Edu NSW ACT Cursive', sans-serif;
+	outline: none;
+}
+
+.options > ::placeholder {
+	color: #febb0b88;
+}
+
+.options button {
+	background-color: #febb0b;
+	color: #143726;
+}
+
+.option.selected {
+	border-color: #ff3535;
+	background-color: #ff353511;
+	color: #ff3535;
+}
+
+.option.selected::placeholder {
+	color: #ff353588;
 }
