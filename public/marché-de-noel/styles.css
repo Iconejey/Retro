@@ -148,3 +148,43 @@ img.qr {
 .option.selected::placeholder {
 	color: #ff353588;
 }
+
+/* Results display styles */
+.results-container {
+	width: 100%;
+	max-width: 800px;
+}
+
+.result-option {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	cursor: default;
+	background-color: none;
+	position: relative;
+}
+
+.progress-bg {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	background-color: #febb0b33;
+	border-radius: calc(0.5rem - 2px) 0 0 calc(0.5rem - 2px);
+	z-index: -1;
+	transition: width 0.5s ease-in-out;
+}
+
+.vote-count {
+	font-size: 1.2rem;
+	color: #febb0b;
+	opacity: 0.8;
+}
+
+.total-votes {
+	text-align: center;
+	margin-top: 2rem;
+	font-size: 1.5rem;
+	color: #febb0b;
+	opacity: 0.9;
+}

@@ -46,7 +46,8 @@ async function initVote() {
 			})
 		});
 
-		document.body.render`<h1>Merci !</h1>`;
+		$$('body :not(.emoji)').forEach(elem => elem.remove());
+		document.body.appendr`<h2>Merci !</h2>`;
 	};
 }
 

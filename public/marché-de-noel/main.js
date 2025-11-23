@@ -39,11 +39,16 @@ window.addEventListener('load', () => {
 
 	// Listen for vote updates
 	socket.on('voteUpdate', data => {
+		// Store the updated vote counts
+		socket.voteData[data.name] = data.counts;
 		updateVoteDisplay(data.name, data.total);
 	});
 
 	// Listen for all vote counts when connecting
 	socket.on('allVoteCounts', allCounts => {
+		// Store all vote data
+		socket.voteData = allCounts;
+
 		for (const voteName in allCounts) {
 			const total = Object.values(allCounts[voteName]).reduce((sum, count) => sum + count, 0);
 			updateVoteDisplay(voteName, total);
@@ -61,5 +66,48 @@ window.addEventListener('load', () => {
 				voteCountElement.textContent = `${totalVotes} vote${totalVotes !== 1 ? 's' : ''}`;
 			}
 		}
+
+		// Update results slide if it exists
+		updateResultsDisplay(voteName);
 	}
+
+	// Function to update the results slide
+	async function updateResultsDisplay(voteName) {
+		const resultsContainer = document.querySelector(`.results-container[data-vote-name="${voteName}"]`);
+		if (!resultsContainer) return;
+
+		const optionsContainer = resultsContainer.$('.options');
+		const totalVotesElement = resultsContainer.$('.total-votes');
+
+		// Get the current vote data from server storage
+		const currentVoteData = socket.voteData || {};
+		const voteResults = currentVoteData[voteName] || {};
+
+		// Calculate total votes
+		const totalVotes = Object.values(voteResults).reduce((sum, count) => sum + count, 0);
+
+		// Update total votes display
+		totalVotesElement.textContent = `${totalVotes} vote${totalVotes !== 1 ? 's' : ''} au total`;
+
+		// Clear existing options
+		optionsContainer.innerHTML = '';
+
+		// Sort results by vote count (highest first)
+		const sortedResults = Object.entries(voteResults).sort((a, b) => b[1] - a[1]);
+
+		// Display each option with its vote count
+		for (const [option, count] of sortedResults) {
+			const percentage = totalVotes > 0 ? Math.round((count / totalVotes) * 100) : 0;
+			optionsContainer.appendr`
+				<div class="option result-option">
+					<div class="progress-bg" style="width: ${percentage}%;"></div>
+					<span class="option-text">${option}</span>
+					<span class="vote-count">${count} vote${count !== 1 ? 's' : ''} (${percentage}%)</span>
+				</div>
+			`;
+		}
+	}
+
+	// Store vote data locally for results display
+	socket.voteData = {};
 });
