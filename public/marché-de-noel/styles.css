@@ -42,9 +42,17 @@ h3 {
 
 p {
 	font-size: 2rem;
-	max-width: 800px;
+	max-width: 1000px;
 	line-height: 1.8;
 	text-align: center;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+p + p {
+	margin-top: 3rem;
 }
 
 ul {
@@ -74,7 +82,7 @@ p {
 }
 
 .op {
-	font-size: 1rem;
+	font-size: 1.5rem;
 	opacity: 0.7;
 }
 
