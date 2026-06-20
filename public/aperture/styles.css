@@ -1,0 +1,130 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	color: #ecf2f7;
+	background: #0b1016 url('./img/Aperture background.jpg') center center / cover no-repeat fixed;
+}
+
+body::before {
+	content: '';
+	position: fixed;
+	inset: 0;
+	background: linear-gradient(150deg, rgba(5, 10, 16, 0.85), rgba(12, 20, 32, 0.7));
+	z-index: -1;
+	pointer-events: none;
+	transition: opacity 0.2s ease;
+}
+
+body.intro-slide::before {
+	opacity: 0;
+}
+
+.slide {
+	display: none;
+	height: 100vh;
+	width: 100vw;
+	position: relative;
+	padding: 3rem;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 1.5rem;
+	text-align: center;
+}
+
+.slide.with-image {
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	text-align: left;
+	gap: 2.5rem;
+}
+
+.slide-copy {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 1.3rem;
+	min-width: 0;
+}
+
+.intro h2 {
+	margin-top: 50vh;
+}
+
+h2 {
+	font-size: clamp(1.8rem, 4vw, 3.2rem);
+	max-width: 1400px;
+	text-wrap: balance;
+	color: #cfe8ff;
+}
+
+blockquote {
+	max-width: min(1200px, 90vw);
+	font-size: clamp(1.2rem, 2.3vw, 2rem);
+	line-height: 1.6;
+	font-style: italic;
+	padding: 1.3rem 1.7rem;
+	border-left: 4px solid #80c9ff;
+	background-color: rgba(5, 19, 30, 0.55);
+	border-radius: 0.5rem;
+	text-align: left;
+}
+
+.subtitle {
+	font-size: clamp(1.2rem, 2.2vw, 2rem);
+	opacity: 0.85;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+}
+
+img {
+	border-radius: 0.5rem;
+	box-shadow: 0 0 24px rgba(0, 0, 0, 0.45);
+	background-color: rgba(6, 12, 18, 0.5);
+	padding: 0.4rem;
+}
+
+.slide.with-image img {
+	flex-shrink: 0;
+	max-width: 540px;
+	max-height: 60vh;
+}
+
+@media (max-width: 900px) {
+	.slide {
+		padding: 1.4rem;
+		gap: 1rem;
+	}
+
+	.slide.with-image {
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	.slide.with-image h2,
+	.slide.with-image blockquote {
+		max-width: 96vw;
+	}
+
+	blockquote {
+		padding: 0.9rem 1.1rem;
+		max-width: 96vw;
+	}
+
+	img {
+		max-width: 80vw;
+		max-height: 22vh;
+	}
+
+	.slide.with-image img {
+		width: 80vw;
+		max-height: 24vh;
+	}
+}
