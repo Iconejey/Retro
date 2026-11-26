@@ -6,7 +6,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
-const PORT = 8026;
+const PORT = 8007;
 
 // Storage for vote counts by vote name
 const voteCounters = {};
