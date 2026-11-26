@@ -46,6 +46,11 @@ h2 {
 	color: #aad7ff;
 }
 
+.small {
+	font-size: 1.5rem;
+	opacity: 0.5;
+}
+
 img {
 	height: 100%;
 	object-fit: cover;
@@ -55,8 +60,11 @@ img {
 
 .panel {
 	flex: 1;
+	font-size: 2rem;
 	padding: 2rem;
 	display: flex;
+	gap: 3rem;
+	line-height: 140%;
 	flex-direction: column;
 	justify-content: center;
 	text-align: center;
