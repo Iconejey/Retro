@@ -30,6 +30,10 @@ h2 {
 	/* opacity: 0.7; */
 }
 
+p {
+	line-height: 140%;
+}
+
 .red {
 	color: #eeaaaa;
 }
@@ -56,6 +60,10 @@ img {
 	object-fit: cover;
 	flex: 2;
 	width: 66%;
+
+	&:not(.qr, :active) {
+		filter: grayscale(50%) blur(30px);
+	}
 }
 
 .panel {
@@ -64,11 +72,20 @@ img {
 	padding: 2rem;
 	display: flex;
 	gap: 3rem;
-	line-height: 140%;
 	flex-direction: column;
 	justify-content: center;
 	text-align: center;
 	color: white;
 	background-image: url(./assets/blackboard.jpeg);
 	font-family: 'ChalkFont', sans-serif;
+}
+
+img.qr {
+	position: absolute;
+	top: 50%;
+	left: 34.5%;
+	transform: translate(-50%, -50%);
+	mix-blend-mode: multiply;
+	width: 300px;
+	height: 300px;
 }

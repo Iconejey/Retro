@@ -12,6 +12,7 @@
 		<script src="/slideshow.js" defer></script>
 		<script src="/qr-code-generator.js" defer></script>
 		<script src="/vote.js" defer></script>
+		<script src="./qr-init.js" defer></script>
 	</head>
 	<body>
 		<div class="slide intro">
@@ -22,7 +23,7 @@
 			</div>
 		</div>
 
-		<div class="slide intro">
+		<div class="slide">
 			<img src="./assets/chef_nicolas.jpeg" />
 			<div class="panel">
 				<h1 class="red">Le Tertous</h1>
@@ -30,6 +31,16 @@
 				<p>Spécialisé dans la cuisine maison, tellement maison que les cuisiniers ont droit à trois jours de télétravail, contrairement à son concurant Parisien Médiacook.</p>
 				<p>Son chef est connu pour ses fricadelles en forme de briques rouges, et sa carbonade en forme de terril.</p>
 				<p class="small">*Casque de mineur inclu dans le menu enfant.</p>
+			</div>
+		</div>
+
+		<div class="slide">
+			<img src="./assets/commandes.jpeg" />
+			<!-- <img class="qr" target="https://retro.ngwy.fr/resto/vote.html?name=icebreaker" /> -->
+			<img class="qr" target="http://localhost:8007/resto/vote.html?name=icebreaker" />
+			<div class="panel">
+				<h1 class="blue">Glace Pilée</h1>
+				<h2>Si vous étiez un ustensile de cuisine, lequel seriez-vous ?</h2>
 			</div>
 		</div>
 	</body>
