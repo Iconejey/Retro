@@ -72,6 +72,7 @@ img {
 	padding: 2rem;
 	display: flex;
 	gap: 3rem;
+	height: 100%;
 	flex-direction: column;
 	justify-content: center;
 	text-align: center;
@@ -88,4 +89,157 @@ img.qr {
 	mix-blend-mode: multiply;
 	width: 300px;
 	height: 300px;
+}
+
+/* Real-time Vote Results in Slide Panel */
+.results-container {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	margin-top: 1rem;
+
+	& .options {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	& .result-option {
+		position: relative;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0.75rem 1rem;
+		background: rgba(255, 255, 255, 0.1);
+		border-radius: 6px;
+		overflow: hidden;
+		font-size: 1.5rem;
+
+		& .progress-bg {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			background: rgba(255, 255, 255, 0.2);
+			transition: width 0.4s ease;
+			z-index: 0;
+		}
+
+		& .option-text,
+		& .vote-count {
+			position: relative;
+			z-index: 1;
+		}
+	}
+
+	& .total-votes {
+		font-size: 1.5rem;
+		opacity: 0.7;
+		margin-top: 0.5rem;
+	}
+}
+
+/* Mobile Voting Page (.vote-page) */
+body.vote-page {
+	font-size: 1.5rem;
+	padding: 4rem 2rem;
+	display: flex;
+	gap: 3rem;
+	height: min-content;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	color: white;
+	background-image: url(./assets/blackboard.jpeg);
+	font-family: 'ChalkFont', sans-serif;
+
+	h1 {
+		font-size: 3rem;
+		margin-bottom: 0;
+	}
+
+	h2 {
+		font-size: 2rem;
+	}
+
+	& .options {
+		width: 100%;
+		max-width: 480px;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	& .option {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		padding: 1rem 1.25rem;
+		background: rgba(255, 255, 255, 0.1);
+		border: 2px dashed rgba(255, 255, 255, 0.5);
+		border-radius: 10px;
+		cursor: pointer;
+		text-align: left;
+		transition:
+			background 0.2s ease,
+			border-color 0.2s ease;
+
+		&:hover,
+		&:active {
+			background: rgba(255, 255, 255, 0.2);
+		}
+
+		&.selected {
+			background: rgba(170, 215, 255, 0.25);
+			border-color: #aad7ff;
+		}
+	}
+
+	& .option-title {
+		font-weight: bold;
+		margin-bottom: 0.3rem;
+		font-size: 1.75rem;
+	}
+
+	& .option-desc {
+		line-height: 140%;
+	}
+
+	& input.custom-input {
+		font-size: 1.4rem;
+		color: white;
+		background: rgba(255, 255, 255, 0.1);
+		border: 2px dashed rgba(255, 255, 255, 0.5);
+		border-radius: 10px;
+		padding: 0.9rem 1rem;
+		font-family: 'ChalkFont', sans-serif;
+		outline: none;
+
+		&::placeholder {
+			color: rgba(255, 255, 255, 0.5);
+		}
+	}
+
+	& button.submit {
+		width: 100%;
+		padding: 1rem;
+		margin-top: 0.5rem;
+		font-family: 'ChalkFont', sans-serif;
+		font-size: 2rem;
+		color: black;
+		background: white;
+		border-radius: 10px;
+		border: none;
+		cursor: pointer;
+
+		&:active {
+			background: rgba(255, 255, 255, 0.3);
+			transform: scale(0.98);
+		}
+	}
+
+	& h2.thank-you {
+		font-size: 3rem;
+		margin-top: 3rem;
+	}
 }

@@ -1,0 +1,29 @@
+{
+	"title": "Si vous étiez un ustensile de cuisine, lequel seriez-vous ?",
+	"options": [
+		{
+			"label": "Cocotte-minute",
+			"description": "Sous haute pression toute la semaine"
+		},
+		{
+			"label": "Couteau de chef",
+			"description": "Incisif, direct au but, tranchant sur les priorités"
+		},
+		{
+			"label": "Poêle antiadhésive",
+			"description": "Les problèmes et le stress glissent sans m'atteindre"
+		},
+		{
+			"label": "Moulin à poivre",
+			"description": "Là pour assaisonner et mettre un peu de piment dans l'équipe"
+		},
+		{
+			"label": "Mixeur",
+			"description": "Je mélange les idées et je fais des smoothies de créativité"
+		},
+		{
+			"label": "Éponge",
+			"description": "Je nettoie les problèmes des autres"
+		}
+	]
+}

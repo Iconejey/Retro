@@ -4,15 +4,29 @@ async function initVote() {
 	const vote_data_res = await fetch(`./${name}.json`);
 	const vote_data = await vote_data_res.json();
 
-	document.body.appendr`
-        <p>${vote_data.title}</p>
+	const container = $('.panel') || document.body;
+
+	container.appendr`
+        <h2 class="question">${vote_data.title}</h2>
         <div class="options"></div>
     `;
 
 	const options = $('.options');
 
 	for (const option of vote_data.options) {
-		const option_elem = create`<span class="option">${option}</span>`;
+		const isObj = typeof option === 'object' && option !== null;
+		const label = isObj ? option.label || option.title || option.name || option.value : option;
+		const desc = isObj ? option.description : null;
+
+		const option_elem = desc
+			? create`<div class="option" data-value="${label}">
+				<div class="option-title blue">${label}</div>
+				<div class="option-desc">${desc}</div>
+			</div>`
+			: create`<div class="option" data-value="${label}">
+				<div class="option-title blue">${label}</div>
+			</div>`;
+
 		options.appendChild(option_elem);
 		option_elem.onclick = () => {
 			options.$('.selected')?.classList.remove('selected');
@@ -21,7 +35,7 @@ async function initVote() {
 	}
 
 	options.appendr`
-        <input class="option" type="text" placeholder="Votre propre réponse..." />
+        <input class="option custom-input" type="text" placeholder="Votre propre réponse..." />
         <button class="submit">Voter</button>
     `;
 
@@ -31,9 +45,11 @@ async function initVote() {
 	};
 
 	$('.submit').onclick = async () => {
-		const option = options.$('.option.selected') || options.$('input');
-		const value = option.value || option.textContent;
-		if (!value) return;
+		const selectedElem = options.$('.option.selected') || options.$('input');
+		if (!selectedElem) return;
+
+		const value = selectedElem.dataset?.value || selectedElem.value || selectedElem.textContent;
+		if (!value || !value.trim()) return;
 
 		await fetch('/submit', {
 			method: 'POST',
@@ -42,12 +58,19 @@ async function initVote() {
 			},
 			body: JSON.stringify({
 				name,
-				option: value
+				option: value.trim()
 			})
 		});
 
-		$$('body :not(.emoji)').forEach(elem => elem.remove());
-		document.body.appendr`<h2>Merci !</h2>`;
+		if (selectedElem.tagName === 'INPUT') {
+			const customOpt = create`<div class="option selected"><div class="option-title blue">${value.trim()}</div></div>`;
+			options.replaceChildren(customOpt);
+		} else {
+			options.replaceChildren(selectedElem);
+			selectedElem.onclick = null;
+		}
+
+		container.appendr`<h2 class="thank-you">Merci !</h2>`;
 	};
 }
 
