@@ -61,9 +61,9 @@ img {
 	flex: 2;
 	width: 66%;
 
-	&:not(.qr, :active) {
+	/* &:not(.qr, :active) {
 		filter: grayscale(50%) blur(30px);
-	}
+	} */
 }
 
 .panel {
